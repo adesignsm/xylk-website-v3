@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "../src/App"
+
+const BIGCOMMERCE_KEY = process.env.REACT_APP_BIGCOMMERCE_SECRET;
+const BIGCOMMERCE_ID = process.env.REACT_APP_BIGCOMMERCE_ID;
+const BIGCOMMERCE_TOKEN = process.env.REACT_APP_BIGCOMMERCE_TOKEN;
+const BIGCOMMERCE_HASH = process.env.REACT_APP_BIGCOMMERCE_HASH;
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json', 
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,DELETE",
+    "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization",
+    'X-Auth-Token': '346r9xuftwqs0ettx51bqe4h8ktjmx9'
+  }
+};
+
+fetch(`https://api.bigcommerce.com/stores/n82ib26bvw/v3/`, options)
+.then(response => response.json())
+.then(response => console.log(response))
+.catch(err => console.error(err));
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <App />
+)
