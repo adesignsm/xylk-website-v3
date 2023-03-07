@@ -9,33 +9,6 @@ import { DeviceOrientationControls } from '@react-three/drei';
 //MODEL
 import FIGURE from "../models/xylky.glb";
 
-// const ModelScene = () => {
-//     const Model = () => {
-//         //IMPORTANT VARIABLE
-//         const obj = useGLTF(FIGURE);
-//         console.log(obj);
-
-//         return (
-//             <>
-//                 <mesh scale={1} position={[0, -3.5, 0]}>
-//                     <primitive object={obj.scene} />
-//                 </mesh>
-//             </>
-//         )
-//     }
-
-//     return (
-//         <>
-//             <Suspense>
-//                 <Canvas frameloop="demand">
-//                     <ambientLight intensity={4} />
-//                     <Model />
-//                 </Canvas>
-//             </Suspense>
-//         </>
-//     )
-// }
-
 const ModelScene = () => {
 
     var scene, camera, renderer, controls;

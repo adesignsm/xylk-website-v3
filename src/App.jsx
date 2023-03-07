@@ -19,11 +19,11 @@ const App = () => {
     return (
         <> 
             <div id='restock-title'>
-                <h1 style={{textTransform: "uppercase", fontWeight: "bold", textAlign: "center"}}>Bags will be restocked on March 8th</h1>
+                <h1 style={{textTransform: "uppercase", fontWeight: "bold", textAlign: "center", color: "navy"}}>Bags will be restocked on March 8th at 12pm est</h1>
             </div>
-            {/* <div id = "bags-canvas">
+            <div id = "bags-canvas">
                 <Scene productData={productData} />
-            </div> */}
+            </div>
             <div id = "figure-canvas">
                 <ModelScene />
             </div>
