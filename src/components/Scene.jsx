@@ -69,9 +69,9 @@ const Scene = ({ productData }) => {
                     density: 0.1,
                     inertia: Infinity,
                     render: {
-                        fillStyle: "#ff0000",
+                        fillStyle: "transparent",
                         sprite: {
-                            // texture: bodiesDom[i].firstChild.src,
+                            texture: bodiesDom[i].firstChild.src,
                             xScale: 0.8,
                             yScale: 0.8,
                         }
