@@ -140,7 +140,7 @@ const Scene = ({ productData }) => {
 
         Matter.World.add(engine.world, mouseInteractivity);
 
-        Events.on(mouseInteractivity, 'mouseup', function(event) {
+        Events.on(mouseInteractivity, 'mousedown', function(event) {
             var mouseConstraint = event.source;
             var bodies = engine.world.bodies;
             if (!mouseConstraint.bodyB) {
@@ -150,7 +150,7 @@ const Scene = ({ productData }) => {
                         var bodyUrl = "https://grocerybags.mybigcommerce.com" + body.url;
                         // Hyperlinking feature
                         if (bodyUrl != undefined) {
-                            window.open(bodyUrl, '_blank');
+                            window.open(bodyUrl, '_self');
                             console.log("Hyperlink was opened");
                         }
                         break;
