@@ -22,6 +22,10 @@ const App = () => {
     const [shopifyProductData, setShopifyProductData] = useState([]);
 
     useEffect(() => {
+        $("body, html").animate({scrollLeft: $("#bags-canvas-shopify").css("left")}, 0);
+    }, []);
+
+    useEffect(() => {
         const collectionId = "gid://shopify/Collection/445732815150";
 
         client.collection.fetchAllWithProducts(collectionId).then((collections) => {
