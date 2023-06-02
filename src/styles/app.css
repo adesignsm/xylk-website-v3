@@ -1,4 +1,4 @@
-body {
+body, html {
   background-color: white;
   display: flex;
   justify-content: center;
@@ -88,6 +88,10 @@ canvas:nth-child(5), canvas:nth-child(4) {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 690px) {
+  body, html {
+    overflow-x: scroll;
+  }
+
   #stop-button {
     left: 6rem;
   }
@@ -98,10 +102,10 @@ canvas:nth-child(5), canvas:nth-child(4) {
   }
 
   #button-navigation-container button:nth-child(1) {
-    margin-left: -20vw;
+    margin-left: -15vw;
   }
   
   #button-navigation-container button:nth-child(2) {
-    margin-right: -20vw;
+    margin-right: -15vw;
   }
 }
