@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import Matter, { Engine, Render, Runner, World, Body, Bodies, Events } from "matter-js";
-import Products from "./Product";
+import ShopifyProducts from "./ShopifyProducts";
 
-const Scene = ({ productData }) => {
+const Scene = ({ shopifyProductData }) => {
     let bodies = [];
     let body;
     let bodiesDom;
@@ -48,7 +48,7 @@ const Scene = ({ productData }) => {
         var runner = Runner.create();
 
         //CREATING BODIES
-        bodiesDom = document.getElementsByClassName('bags');
+        bodiesDom = document.getElementsByClassName('bags-shopify');
 
         for (var i = 0; i < bodiesDom.length; i++) {
             if (bodiesDom[i]) {
@@ -64,11 +64,11 @@ const Scene = ({ productData }) => {
                         fillStyle: "transparent",
                         sprite: {
                             texture: bodiesDom[i].firstChild.src,
-                            xScale: 0.8,
-                            yScale: 0.8,
+                            xScale: 0.1,
+                            yScale: 0.1,
                         }
                     },
-                    url: productData[i].custom_url.url,
+                    url: shopifyProductData[i].onlineStoreUrl,
                 })
             }
             
@@ -139,11 +139,10 @@ const Scene = ({ productData }) => {
                 for (i = 0; i < bodies.length; i++) { 
                     var body = bodies[i];
                     if (Matter.Bounds.contains(body.bounds, mouseConstraint.mouse.position)) {
-                        var bodyUrl = "https://grocerybags.mybigcommerce.com" + body.url;
-                        // Hyperlinking feature
+                        var bodyUrl = body.url;
+
                         if (bodyUrl != undefined) {
                             window.open(bodyUrl, '_self');
-                            console.log("Hyperlink was opened");
                         }
                         break;
                     }
@@ -170,7 +169,7 @@ const Scene = ({ productData }) => {
         <>
             <div ref={boxRef} style={{ width: "100vw", height: "100vh" }}>
                 <canvas ref={canvasRef} />
-                <Products productData={productData} />
+                <ShopifyProducts productData={shopifyProductData} />
                 <button id="stop-button" onClick={(e) => {
                     bodies.forEach((b) => {
                         if ((!b.isStatic)) {

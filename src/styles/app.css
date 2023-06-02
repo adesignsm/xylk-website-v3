@@ -5,7 +5,8 @@ body {
   padding: 1rem;
   color: black;
   font-family: "Arial", Arial, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .product-images {
@@ -21,21 +22,9 @@ body {
 #stop-button {
   position: relative;
   top: 2rem;
-  left: 4rem;
+  left: 3rem;
   width: 200px;
   z-index: 999;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 690px) {
-  #stop-button {
-    left: 6rem;
-  }
-}
-
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 #bags-canvas {
@@ -46,11 +35,64 @@ canvas {
   background: transparent;
 }
 
+canvas:nth-child(5), canvas:nth-child(4) {
+  display: none !important;
+}
+
 #figure-canvas {
-  position: absolute;
-  top: 0px;
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 99;
+}
+
+#bags-canvas-shopify {
+  position: absolute;
+  top: 0;
+  left: 100vw;
+  z-index: 999;
+}
+
+#button-navigation-container {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-self: normal;
+  height: 5vh;
+  left: 0;
+  bottom: 10vh;
+  z-index: 999;
+}
+
+#button-navigation-container button {
+  width: 20vw;
+  border: none;
+  background-color: transparent;
+}
+
+#button-navigation-container button > img {
+  width: 100%;
+  mix-blend-mode: multiply;
+}
+
+#button-navigation-container button:nth-child(1) {
+  margin-left: -30vw;
+}
+
+#button-navigation-container button:nth-child(2) {
+  margin-right: -30vw;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 690px) {
+  #stop-button {
+    left: 6rem;
+  }
+
+  #button-navigation-container button {
+    margin: 0;
+  }
 }

@@ -85,7 +85,7 @@ const ModelScene = () => {
         renderer = new THREE.WebGLRenderer({antialis: true, alpha: true});
         renderer.shadowMap.enabled = true;
         renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        document.getElementById("figure-canvas").appendChild(renderer.domElement);
     
         //lighting
         var hemi_light = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.61);

@@ -2,8 +2,6 @@ import React from "react";
 import "../styles/product.css"       
 
 const Products = ({productData}) => {
-    console.log(productData);
-
     return (
         <div>
             {productData.map((product) => {
