@@ -96,4 +96,12 @@ canvas:nth-child(5), canvas:nth-child(4) {
     margin: 0;
     width: 40vw;
   }
+
+  #button-navigation-container button:nth-child(1) {
+    margin-left: -20vw;
+  }
+  
+  #button-navigation-container button:nth-child(2) {
+    margin-right: -20vw;
+  }
 }
