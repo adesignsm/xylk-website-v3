@@ -94,5 +94,6 @@ canvas:nth-child(5), canvas:nth-child(4) {
 
   #button-navigation-container button {
     margin: 0;
+    width: 40vw;
   }
 }
