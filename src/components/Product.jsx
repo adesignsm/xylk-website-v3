@@ -7,7 +7,7 @@ const Products = ({productData}) => {
             {productData.map((product) => {
                 return (
                     <div className="bags" key={product.id}>
-                         <img className="image-send" data-url={product.custom_url.url} src={product.bin_picking_number} style={{display: "none"}}/>
+                         <img className="image-send" data-url={product.onlineStoreUrl} src={product.images[0].src} style={{display: "none"}}/>
                     </div>
                 )
             })}   

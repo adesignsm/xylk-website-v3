@@ -38,12 +38,25 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        axios.get("https://in5hxckmer2cr6gbvlb3qw7wnm0xsdjz.lambda-url.us-east-2.on.aws/").then((response) => {
-            setProductData(response.data.data);
-        }).catch((err) => {
-            console.error(err);
-        })
-    }, []); 
+        const collectionId = "gid://shopify/Collection/449198522670";
+
+        client.collection.fetchAllWithProducts(collectionId).then((collections) => {
+            collections.forEach((collection) => {
+                if (collection.id === collectionId) {
+                    setProductData(collection.attrs.products);
+                }
+            })
+        });
+    }, []);
+
+    //bigcommerce
+    // useEffect(() => {
+    //     axios.get("https://in5hxckmer2cr6gbvlb3qw7wnm0xsdjz.lambda-url.us-east-2.on.aws/").then((response) => {
+    //         setProductData(response.data.data);
+    //     }).catch((err) => {
+    //         console.error(err);
+    //     })
+    // }, []); 
 
     const handleGreenHillButton = () => {
         $("body, html").animate({scrollLeft: $("#bags-canvas-shopify").css("left")}, 800);

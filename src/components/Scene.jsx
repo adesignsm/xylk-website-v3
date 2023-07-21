@@ -64,11 +64,12 @@ const Scene = ({ productData }) => {
                         fillStyle: "transparent",
                         sprite: {
                             texture: bodiesDom[i].firstChild.src,
-                            xScale: 0.8,
-                            yScale: 0.8,
+                            xScale: 0.1,
+                            yScale: 0.1,
                         }
                     },
-                    url: productData[i].custom_url.url,
+                    url: productData[i].onlineStoreUrl,
+                    // url: productData[i].custom_url.url,
                 })
             }
             
@@ -139,7 +140,8 @@ const Scene = ({ productData }) => {
                 for (i = 0; i < bodies.length; i++) { 
                     var body = bodies[i];
                     if (Matter.Bounds.contains(body.bounds, mouseConstraint.mouse.position)) {
-                        var bodyUrl = "https://grocerybags.mybigcommerce.com" + body.url;
+                        // var bodyUrl = "https://grocerybags.mybigcommerce.com" + body.url;
+                        var bodyUrl = body.url;
                         // Hyperlinking feature
                         if (bodyUrl != undefined) {
                             window.open(bodyUrl, '_self');
